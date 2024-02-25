@@ -1,6 +1,5 @@
 .babelrc
 .gitignore
-.openapi-generator-ignore
 .travis.yml
 README.md
 docs/AddStub200Response.md
@@ -30,14 +29,3 @@ src/model/Stub.js
 src/model/StubHeaders.js
 src/model/StubInput.js
 src/model/StubOutput.js
-test/api/HealthcheckApi.spec.js
-test/api/StubsApi.spec.js
-test/model/AddStub200Response.spec.js
-test/model/AddStubRequest.spec.js
-test/model/MessageOK.spec.js
-test/model/SearchRequest.spec.js
-test/model/SearchResponse.spec.js
-test/model/Stub.spec.js
-test/model/StubHeaders.spec.js
-test/model/StubInput.spec.js
-test/model/StubOutput.spec.js
