@@ -1,0 +1,4 @@
+additionalProperties:
+  projectName: gripmock-sdk-js
+  projectVersion: 2.4.0
+  licenseName: MIT

@@ -1,0 +1,17 @@
+{
+  "name": "gripmock-sdk-js",
+  "version": "2.4.0",
+  "type": "module",
+  "description": "GripMock SDK.",
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "github.com/bavix/gripmock-sdk-js"
+  },
+  "keywords": [
+    "gripmock",
+    "sdk"
+  ],
+  "author": "Maksim Babichev",
+  "license": "MIT"
+}
