@@ -1,4 +1,4 @@
-# GripmockSdkJs.MessageOK
+# GripmockSdk.MessageOK
 
 ## Properties
 

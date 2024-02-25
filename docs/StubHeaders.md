@@ -1,4 +1,4 @@
-# GripmockSdkJs.StubHeaders
+# GripmockSdk.StubHeaders
 
 ## Properties
 

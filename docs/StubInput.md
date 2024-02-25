@@ -1,4 +1,4 @@
-# GripmockSdkJs.StubInput
+# GripmockSdk.StubInput
 
 ## Properties
 

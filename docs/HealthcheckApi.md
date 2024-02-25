@@ -1,4 +1,4 @@
-# GripmockSdkJs.HealthcheckApi
+# GripmockSdk.HealthcheckApi
 
 All URIs are relative to *https://raw.githubusercontent.com/api*
 
@@ -20,16 +20,15 @@ The test says that the service is alive and yet
 ### Example
 
 ```javascript
-import GripmockSdkJs from 'gripmock-sdk-js';
+import GripmockSdk from '@bavix/gripmock-sdk';
 
-let apiInstance = new GripmockSdkJs.HealthcheckApi();
-apiInstance.liveness((error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
+let apiInstance = new GripmockSdk.HealthcheckApi();
+apiInstance.liveness().then((data) => {
+  console.log('API called successfully. Returned data: ' + data);
+}, (error) => {
+  console.error(error);
 });
+
 ```
 
 ### Parameters
@@ -61,16 +60,15 @@ The test indicates readiness to receive traffic
 ### Example
 
 ```javascript
-import GripmockSdkJs from 'gripmock-sdk-js';
+import GripmockSdk from '@bavix/gripmock-sdk';
 
-let apiInstance = new GripmockSdkJs.HealthcheckApi();
-apiInstance.readiness((error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
+let apiInstance = new GripmockSdk.HealthcheckApi();
+apiInstance.readiness().then((data) => {
+  console.log('API called successfully. Returned data: ' + data);
+}, (error) => {
+  console.error(error);
 });
+
 ```
 
 ### Parameters

@@ -24,6 +24,13 @@ jobs:
           openapi-url: https://raw.githubusercontent.com/bavix/gripmock-openapi/master/api.yaml
           command-args: -o . --package-name gripmock-sdk-js -c config.yaml
 
+      - name: Set org bavix
+        run: |
+          grep -rl gripmock-sdk --exclude-dir={node_modules,.git,.github} --exclude={changelog.md,config.yaml} . | xargs sed -i 's/gripmock-sdk/@bavix\/gripmock-sdk/g'
+
+      - name: "Move @babel/cli to dev"
+        run: npm i @babel/cli -D
+
       - name: "Check if build has changed"
         if: success()
         id: has-changes

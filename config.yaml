@@ -1,4 +1,5 @@
 additionalProperties:
-  projectName: gripmock-sdk-js
+  projectName: gripmock-sdk
   projectVersion: 2.4.0
   licenseName: MIT
+  usePromises: true
