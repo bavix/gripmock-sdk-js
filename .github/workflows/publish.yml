@@ -3,7 +3,7 @@ on:
   release:
     types: [published]
 jobs:
-  npm:
+  build:
     runs-on: ubuntu-latest
     permissions:
       contents: read
@@ -19,19 +19,3 @@ jobs:
       - run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-  github:
-    runs-on: ubuntu-latest
-    permissions:
-      contents: read
-      packages: write
-    steps:
-      - uses: actions/checkout@v4
-      # Setup .npmrc file to publish to GitHub Packages
-      - uses: actions/setup-node@v4
-        with:
-          node-version: '21.x'
-          registry-url: https://npm.pkg.github.com/
-      - run: npm i
-      - run: npm publish
-        env:
-          NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
