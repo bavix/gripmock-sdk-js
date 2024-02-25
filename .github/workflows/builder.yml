@@ -28,7 +28,9 @@ jobs:
         run: npm i @babel/cli -D
 
       - name: Set org bavix
-        run: npm init --scope=bavix -y
+        run: |
+          npm init --scope=bavix -y
+          sed -i 's/gripmock-sdk/@bavix\/gripmock-sdk/g' README.md
 
       - name: "Check if build has changed"
         if: success()
