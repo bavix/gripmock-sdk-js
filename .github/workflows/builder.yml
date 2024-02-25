@@ -26,7 +26,8 @@ jobs:
 
       - name: Set org bavix
         run: |
-          grep -rl gripmock-sdk . | xargs sed -i 's/gripmock-sdk/@bavix\/gripmock-sdk/g'
+          grep -rl gripmock-sdk --exclude-dir=node_modules --exclude-dir=.git .
+          grep -rl gripmock-sdk --exclude-dir=node_modules --exclude-dir=.git . | xargs sed -i 's/gripmock-sdk/@bavix\/gripmock-sdk/g'
 
       - name: "Move @babel/cli to dev"
         run: npm i @babel/cli -D
