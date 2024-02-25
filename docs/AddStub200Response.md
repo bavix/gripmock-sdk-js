@@ -1,4 +1,4 @@
-# GripmockSdkJs.AddStub200Response
+# GripmockSdk.AddStub200Response
 
 ## Properties
 

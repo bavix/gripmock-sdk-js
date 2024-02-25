@@ -1,4 +1,4 @@
-# GripmockSdkJs.StubsApi
+# GripmockSdk.StubsApi
 
 All URIs are relative to *https://raw.githubusercontent.com/api*
 
@@ -26,17 +26,16 @@ Add a new stub to the store
 ### Example
 
 ```javascript
-import GripmockSdkJs from 'gripmock-sdk-js';
+import GripmockSdk from '@bavix/gripmock-sdk';
 
-let apiInstance = new GripmockSdkJs.StubsApi();
-let addStubRequest = new GripmockSdkJs.AddStubRequest(); // AddStubRequest | Create a new pet in the store
-apiInstance.addStub(addStubRequest, (error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
+let apiInstance = new GripmockSdk.StubsApi();
+let addStubRequest = new GripmockSdk.AddStubRequest(); // AddStubRequest | Create a new pet in the store
+apiInstance.addStub(addStubRequest).then((data) => {
+  console.log('API called successfully. Returned data: ' + data);
+}, (error) => {
+  console.error(error);
 });
+
 ```
 
 ### Parameters
@@ -71,17 +70,16 @@ Takes IDs as input and deletes them
 ### Example
 
 ```javascript
-import GripmockSdkJs from 'gripmock-sdk-js';
+import GripmockSdk from '@bavix/gripmock-sdk';
 
-let apiInstance = new GripmockSdkJs.StubsApi();
+let apiInstance = new GripmockSdk.StubsApi();
 let requestBody = ["51c50050-ec27-4dae-a583-a32ca71a1dd5"]; // [String] | Create a new pet in the store
-apiInstance.batchStubsDelete(requestBody, (error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully.');
-  }
+apiInstance.batchStubsDelete(requestBody).then(() => {
+  console.log('API called successfully.');
+}, (error) => {
+  console.error(error);
 });
+
 ```
 
 ### Parameters
@@ -116,17 +114,16 @@ The method removes the stub by ID
 ### Example
 
 ```javascript
-import GripmockSdkJs from 'gripmock-sdk-js';
+import GripmockSdk from '@bavix/gripmock-sdk';
 
-let apiInstance = new GripmockSdkJs.StubsApi();
+let apiInstance = new GripmockSdk.StubsApi();
 let uuid = "uuid_example"; // String | ID of stub
-apiInstance.deleteStubByID(uuid, (error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully.');
-  }
+apiInstance.deleteStubByID(uuid).then(() => {
+  console.log('API called successfully.');
+}, (error) => {
+  console.error(error);
 });
+
 ```
 
 ### Parameters
@@ -161,16 +158,15 @@ The list of stubs is required to view all added stubs
 ### Example
 
 ```javascript
-import GripmockSdkJs from 'gripmock-sdk-js';
+import GripmockSdk from '@bavix/gripmock-sdk';
 
-let apiInstance = new GripmockSdkJs.StubsApi();
-apiInstance.listStubs((error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
+let apiInstance = new GripmockSdk.StubsApi();
+apiInstance.listStubs().then((data) => {
+  console.log('API called successfully. Returned data: ' + data);
+}, (error) => {
+  console.error(error);
 });
+
 ```
 
 ### Parameters
@@ -202,16 +198,15 @@ The list is needed to quickly find unused stubs
 ### Example
 
 ```javascript
-import GripmockSdkJs from 'gripmock-sdk-js';
+import GripmockSdk from '@bavix/gripmock-sdk';
 
-let apiInstance = new GripmockSdkJs.StubsApi();
-apiInstance.listUnusedStubs((error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
+let apiInstance = new GripmockSdk.StubsApi();
+apiInstance.listUnusedStubs().then((data) => {
+  console.log('API called successfully. Returned data: ' + data);
+}, (error) => {
+  console.error(error);
 });
+
 ```
 
 ### Parameters
@@ -243,16 +238,15 @@ The list is needed to quickly find used stubs
 ### Example
 
 ```javascript
-import GripmockSdkJs from 'gripmock-sdk-js';
+import GripmockSdk from '@bavix/gripmock-sdk';
 
-let apiInstance = new GripmockSdkJs.StubsApi();
-apiInstance.listUsedStubs((error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
+let apiInstance = new GripmockSdk.StubsApi();
+apiInstance.listUsedStubs().then((data) => {
+  console.log('API called successfully. Returned data: ' + data);
+}, (error) => {
+  console.error(error);
 });
+
 ```
 
 ### Parameters
@@ -284,16 +278,15 @@ Completely clears the stub storage
 ### Example
 
 ```javascript
-import GripmockSdkJs from 'gripmock-sdk-js';
+import GripmockSdk from '@bavix/gripmock-sdk';
 
-let apiInstance = new GripmockSdkJs.StubsApi();
-apiInstance.purgeStubs((error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully.');
-  }
+let apiInstance = new GripmockSdk.StubsApi();
+apiInstance.purgeStubs().then(() => {
+  console.log('API called successfully.');
+}, (error) => {
+  console.error(error);
 });
+
 ```
 
 ### Parameters
@@ -325,17 +318,16 @@ Performs a search for a stub by the given conditions
 ### Example
 
 ```javascript
-import GripmockSdkJs from 'gripmock-sdk-js';
+import GripmockSdk from '@bavix/gripmock-sdk';
 
-let apiInstance = new GripmockSdkJs.StubsApi();
-let searchRequest = new GripmockSdkJs.SearchRequest(); // SearchRequest | Description of filtering
-apiInstance.searchStubs(searchRequest, (error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
+let apiInstance = new GripmockSdk.StubsApi();
+let searchRequest = new GripmockSdk.SearchRequest(); // SearchRequest | Description of filtering
+apiInstance.searchStubs(searchRequest).then((data) => {
+  console.log('API called successfully. Returned data: ' + data);
+}, (error) => {
+  console.error(error);
 });
+
 ```
 
 ### Parameters

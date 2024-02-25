@@ -1,4 +1,4 @@
-# GripmockSdkJs.AddStubRequest
+# GripmockSdk.AddStubRequest
 
 ## Properties
 

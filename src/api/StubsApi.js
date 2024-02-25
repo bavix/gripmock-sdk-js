@@ -38,22 +38,14 @@ export default class StubsApi {
     }
 
 
-    /**
-     * Callback function to receive the result of the addStub operation.
-     * @callback module:api/StubsApi~addStubCallback
-     * @param {String} error Error message, if any.
-     * @param {module:model/AddStub200Response} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
 
     /**
      * Add a new stub to the store
      * Add a new stub to the store
      * @param {module:model/AddStubRequest} addStubRequest Create a new pet in the store
-     * @param {module:api/StubsApi~addStubCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/AddStub200Response}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/AddStub200Response} and HTTP response
      */
-    addStub(addStubRequest, callback) {
+    addStubWithHttpInfo(addStubRequest) {
       let postBody = addStubRequest;
       // verify the required parameter 'addStubRequest' is set
       if (addStubRequest === undefined || addStubRequest === null) {
@@ -76,25 +68,31 @@ export default class StubsApi {
       return this.apiClient.callApi(
         '/stubs', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, null, callback
+        authNames, contentTypes, accepts, returnType, null
       );
     }
 
     /**
-     * Callback function to receive the result of the batchStubsDelete operation.
-     * @callback module:api/StubsApi~batchStubsDeleteCallback
-     * @param {String} error Error message, if any.
-     * @param data This operation does not return a value.
-     * @param {String} response The complete HTTP response.
+     * Add a new stub to the store
+     * Add a new stub to the store
+     * @param {module:model/AddStubRequest} addStubRequest Create a new pet in the store
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/AddStub200Response}
      */
+    addStub(addStubRequest) {
+      return this.addStubWithHttpInfo(addStubRequest)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
 
     /**
      * Deletes a pack by IDs
      * Takes IDs as input and deletes them
      * @param {Array.<String>} requestBody Create a new pet in the store
-     * @param {module:api/StubsApi~batchStubsDeleteCallback} callback The callback function, accepting three arguments: error, data, response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing HTTP response
      */
-    batchStubsDelete(requestBody, callback) {
+    batchStubsDeleteWithHttpInfo(requestBody) {
       let postBody = requestBody;
       // verify the required parameter 'requestBody' is set
       if (requestBody === undefined || requestBody === null) {
@@ -117,25 +115,31 @@ export default class StubsApi {
       return this.apiClient.callApi(
         '/stubs/batchDelete', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, null, callback
+        authNames, contentTypes, accepts, returnType, null
       );
     }
 
     /**
-     * Callback function to receive the result of the deleteStubByID operation.
-     * @callback module:api/StubsApi~deleteStubByIDCallback
-     * @param {String} error Error message, if any.
-     * @param data This operation does not return a value.
-     * @param {String} response The complete HTTP response.
+     * Deletes a pack by IDs
+     * Takes IDs as input and deletes them
+     * @param {Array.<String>} requestBody Create a new pet in the store
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}
      */
+    batchStubsDelete(requestBody) {
+      return this.batchStubsDeleteWithHttpInfo(requestBody)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
 
     /**
      * Deletes stub by ID
      * The method removes the stub by ID
      * @param {String} uuid ID of stub
-     * @param {module:api/StubsApi~deleteStubByIDCallback} callback The callback function, accepting three arguments: error, data, response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing HTTP response
      */
-    deleteStubByID(uuid, callback) {
+    deleteStubByIDWithHttpInfo(uuid) {
       let postBody = null;
       // verify the required parameter 'uuid' is set
       if (uuid === undefined || uuid === null) {
@@ -159,25 +163,30 @@ export default class StubsApi {
       return this.apiClient.callApi(
         '/stubs/{uuid}', 'DELETE',
         pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, null, callback
+        authNames, contentTypes, accepts, returnType, null
       );
     }
 
     /**
-     * Callback function to receive the result of the listStubs operation.
-     * @callback module:api/StubsApi~listStubsCallback
-     * @param {String} error Error message, if any.
-     * @param {Array.<module:model/Stub>} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
+     * Deletes stub by ID
+     * The method removes the stub by ID
+     * @param {String} uuid ID of stub
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}
      */
+    deleteStubByID(uuid) {
+      return this.deleteStubByIDWithHttpInfo(uuid)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
 
     /**
      * Getting a list of stubs
      * The list of stubs is required to view all added stubs
-     * @param {module:api/StubsApi~listStubsCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link Array.<module:model/Stub>}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link Array.<module:model/Stub>} and HTTP response
      */
-    listStubs(callback) {
+    listStubsWithHttpInfo() {
       let postBody = null;
 
       let pathParams = {
@@ -196,25 +205,29 @@ export default class StubsApi {
       return this.apiClient.callApi(
         '/stubs', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, null, callback
+        authNames, contentTypes, accepts, returnType, null
       );
     }
 
     /**
-     * Callback function to receive the result of the listUnusedStubs operation.
-     * @callback module:api/StubsApi~listUnusedStubsCallback
-     * @param {String} error Error message, if any.
-     * @param {Array.<module:model/Stub>} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
+     * Getting a list of stubs
+     * The list of stubs is required to view all added stubs
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Array.<module:model/Stub>}
      */
+    listStubs() {
+      return this.listStubsWithHttpInfo()
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
 
     /**
      * Getting a list of unused stubs
      * The list is needed to quickly find unused stubs
-     * @param {module:api/StubsApi~listUnusedStubsCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link Array.<module:model/Stub>}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link Array.<module:model/Stub>} and HTTP response
      */
-    listUnusedStubs(callback) {
+    listUnusedStubsWithHttpInfo() {
       let postBody = null;
 
       let pathParams = {
@@ -233,25 +246,29 @@ export default class StubsApi {
       return this.apiClient.callApi(
         '/stubs/unused', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, null, callback
+        authNames, contentTypes, accepts, returnType, null
       );
     }
 
     /**
-     * Callback function to receive the result of the listUsedStubs operation.
-     * @callback module:api/StubsApi~listUsedStubsCallback
-     * @param {String} error Error message, if any.
-     * @param {Array.<module:model/Stub>} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
+     * Getting a list of unused stubs
+     * The list is needed to quickly find unused stubs
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Array.<module:model/Stub>}
      */
+    listUnusedStubs() {
+      return this.listUnusedStubsWithHttpInfo()
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
 
     /**
      * Getting a list of used stubs
      * The list is needed to quickly find used stubs
-     * @param {module:api/StubsApi~listUsedStubsCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link Array.<module:model/Stub>}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link Array.<module:model/Stub>} and HTTP response
      */
-    listUsedStubs(callback) {
+    listUsedStubsWithHttpInfo() {
       let postBody = null;
 
       let pathParams = {
@@ -270,24 +287,29 @@ export default class StubsApi {
       return this.apiClient.callApi(
         '/stubs/used', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, null, callback
+        authNames, contentTypes, accepts, returnType, null
       );
     }
 
     /**
-     * Callback function to receive the result of the purgeStubs operation.
-     * @callback module:api/StubsApi~purgeStubsCallback
-     * @param {String} error Error message, if any.
-     * @param data This operation does not return a value.
-     * @param {String} response The complete HTTP response.
+     * Getting a list of used stubs
+     * The list is needed to quickly find used stubs
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Array.<module:model/Stub>}
      */
+    listUsedStubs() {
+      return this.listUsedStubsWithHttpInfo()
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
 
     /**
      * Remove all stubs
      * Completely clears the stub storage
-     * @param {module:api/StubsApi~purgeStubsCallback} callback The callback function, accepting three arguments: error, data, response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing HTTP response
      */
-    purgeStubs(callback) {
+    purgeStubsWithHttpInfo() {
       let postBody = null;
 
       let pathParams = {
@@ -306,26 +328,30 @@ export default class StubsApi {
       return this.apiClient.callApi(
         '/stubs', 'DELETE',
         pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, null, callback
+        authNames, contentTypes, accepts, returnType, null
       );
     }
 
     /**
-     * Callback function to receive the result of the searchStubs operation.
-     * @callback module:api/StubsApi~searchStubsCallback
-     * @param {String} error Error message, if any.
-     * @param {module:model/SearchResponse} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
+     * Remove all stubs
+     * Completely clears the stub storage
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}
      */
+    purgeStubs() {
+      return this.purgeStubsWithHttpInfo()
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
 
     /**
      * Stub storage search
      * Performs a search for a stub by the given conditions
      * @param {module:model/SearchRequest} searchRequest Description of filtering
-     * @param {module:api/StubsApi~searchStubsCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/SearchResponse}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/SearchResponse} and HTTP response
      */
-    searchStubs(searchRequest, callback) {
+    searchStubsWithHttpInfo(searchRequest) {
       let postBody = searchRequest;
       // verify the required parameter 'searchRequest' is set
       if (searchRequest === undefined || searchRequest === null) {
@@ -348,8 +374,21 @@ export default class StubsApi {
       return this.apiClient.callApi(
         '/stubs/search', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, null, callback
+        authNames, contentTypes, accepts, returnType, null
       );
+    }
+
+    /**
+     * Stub storage search
+     * Performs a search for a stub by the given conditions
+     * @param {module:model/SearchRequest} searchRequest Description of filtering
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/SearchResponse}
+     */
+    searchStubs(searchRequest) {
+      return this.searchStubsWithHttpInfo(searchRequest)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
     }
 
 

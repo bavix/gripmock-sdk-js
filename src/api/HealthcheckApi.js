@@ -34,21 +34,13 @@ export default class HealthcheckApi {
     }
 
 
-    /**
-     * Callback function to receive the result of the liveness operation.
-     * @callback module:api/HealthcheckApi~livenessCallback
-     * @param {String} error Error message, if any.
-     * @param {module:model/MessageOK} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
 
     /**
      * Liveness check
      * The test says that the service is alive and yet
-     * @param {module:api/HealthcheckApi~livenessCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/MessageOK}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/MessageOK} and HTTP response
      */
-    liveness(callback) {
+    livenessWithHttpInfo() {
       let postBody = null;
 
       let pathParams = {
@@ -67,25 +59,29 @@ export default class HealthcheckApi {
       return this.apiClient.callApi(
         '/health/liveness', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, null, callback
+        authNames, contentTypes, accepts, returnType, null
       );
     }
 
     /**
-     * Callback function to receive the result of the readiness operation.
-     * @callback module:api/HealthcheckApi~readinessCallback
-     * @param {String} error Error message, if any.
-     * @param {module:model/MessageOK} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
+     * Liveness check
+     * The test says that the service is alive and yet
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/MessageOK}
      */
+    liveness() {
+      return this.livenessWithHttpInfo()
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
 
     /**
      * Readiness check
      * The test indicates readiness to receive traffic
-     * @param {module:api/HealthcheckApi~readinessCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/MessageOK}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/MessageOK} and HTTP response
      */
-    readiness(callback) {
+    readinessWithHttpInfo() {
       let postBody = null;
 
       let pathParams = {
@@ -104,8 +100,20 @@ export default class HealthcheckApi {
       return this.apiClient.callApi(
         '/health/readiness', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, null, callback
+        authNames, contentTypes, accepts, returnType, null
       );
+    }
+
+    /**
+     * Readiness check
+     * The test indicates readiness to receive traffic
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/MessageOK}
+     */
+    readiness() {
+      return this.readinessWithHttpInfo()
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
     }
 
 

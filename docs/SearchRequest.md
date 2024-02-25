@@ -1,4 +1,4 @@
-# GripmockSdkJs.SearchRequest
+# GripmockSdk.SearchRequest
 
 ## Properties
 
