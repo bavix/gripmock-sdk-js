@@ -55,7 +55,7 @@ import StubsApi from './api/StubsApi';
 * </pre>
 * </p>
 * @module index
-* @version 2.4.0
+* @version 1.0.0
 */
 export {
     /**

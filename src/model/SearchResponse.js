@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The SearchResponse model module.
  * @module model/SearchResponse
- * @version 2.4.0
+ * @version 1.0.0
  */
 class SearchResponse {
     /**

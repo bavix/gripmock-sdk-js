@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The StubHeaders model module.
  * @module model/StubHeaders
- * @version 2.4.0
+ * @version 1.0.0
  */
 class StubHeaders {
     /**
