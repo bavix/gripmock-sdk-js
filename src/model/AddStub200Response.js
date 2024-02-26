@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The AddStub200Response model module.
  * @module model/AddStub200Response
- * @version 2.4.0
+ * @version 1.0.0
  */
 class AddStub200Response {
     /**

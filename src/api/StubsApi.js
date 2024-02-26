@@ -22,7 +22,7 @@ import Stub from '../model/Stub';
 /**
 * Stubs service.
 * @module api/StubsApi
-* @version 2.4.0
+* @version 1.0.0
 */
 export default class StubsApi {
 

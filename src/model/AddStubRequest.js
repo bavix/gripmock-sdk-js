@@ -20,7 +20,7 @@ import StubOutput from './StubOutput';
 /**
  * The AddStubRequest model module.
  * @module model/AddStubRequest
- * @version 2.4.0
+ * @version 1.0.0
  */
 class AddStubRequest {
     /**

@@ -16,7 +16,7 @@ import ApiClient from '../ApiClient';
 /**
  * The StubInput model module.
  * @module model/StubInput
- * @version 2.4.0
+ * @version 1.0.0
  */
 class StubInput {
     /**

@@ -18,7 +18,7 @@ import MessageOK from '../model/MessageOK';
 /**
 * Healthcheck service.
 * @module api/HealthcheckApi
-* @version 2.4.0
+* @version 1.0.0
 */
 export default class HealthcheckApi {
 
