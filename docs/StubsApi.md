@@ -7,6 +7,7 @@ Method | HTTP request | Description
 [**addStub**](StubsApi.md#addStub) | **POST** /stubs | Add a new stub to the store
 [**batchStubsDelete**](StubsApi.md#batchStubsDelete) | **POST** /stubs/batchDelete | Deletes a pack by IDs
 [**deleteStubByID**](StubsApi.md#deleteStubByID) | **DELETE** /stubs/{uuid} | Deletes stub by ID
+[**findByID**](StubsApi.md#findByID) | **GET** /stubs/{uuid} | Get Stub by ID
 [**listStubs**](StubsApi.md#listStubs) | **GET** /stubs | Getting a list of stubs
 [**listUnusedStubs**](StubsApi.md#listUnusedStubs) | **GET** /stubs/unused | Getting a list of unused stubs
 [**listUsedStubs**](StubsApi.md#listUsedStubs) | **GET** /stubs/used | Getting a list of used stubs
@@ -145,6 +146,50 @@ No authorization required
 
 - **Content-Type**: Not defined
 - **Accept**: Not defined
+
+
+## findByID
+
+> Stub findByID(uuid)
+
+Get Stub by ID
+
+Searches for Stub by ID
+
+### Example
+
+```javascript
+import GripmockSdk from '@bavix/gripmock-sdk';
+
+let apiInstance = new GripmockSdk.StubsApi();
+let uuid = "uuid_example"; // String | ID of stub
+apiInstance.findByID(uuid).then((data) => {
+  console.log('API called successfully. Returned data: ' + data);
+}, (error) => {
+  console.error(error);
+});
+
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **uuid** | **String**| ID of stub | 
+
+### Return type
+
+[**Stub**](Stub.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 
 ## listStubs
