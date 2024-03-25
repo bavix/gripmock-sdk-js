@@ -13,18 +13,19 @@
 
 
 import ApiClient from "../ApiClient";
-import MessageOK from '../model/MessageOK';
+import Method from '../model/Method';
+import Service from '../model/Service';
 
 /**
-* Healthcheck service.
-* @module api/HealthcheckApi
+* Services service.
+* @module api/ServicesApi
 * @version 1.0.0
 */
-export default class HealthcheckApi {
+export default class ServicesApi {
 
     /**
-    * Constructs a new HealthcheckApi. 
-    * @alias module:api/HealthcheckApi
+    * Constructs a new ServicesApi. 
+    * @alias module:api/ServicesApi
     * @class
     * @param {module:ApiClient} [apiClient] Optional API client implementation to use,
     * default to {@link module:ApiClient#instance} if unspecified.
@@ -36,14 +37,20 @@ export default class HealthcheckApi {
 
 
     /**
-     * Liveness check
-     * The test says that the service is alive and yet
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/MessageOK} and HTTP response
+     * Service methods
+     * List of registered service methods
+     * @param {String} serviceID ID of service
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link Array.<module:model/Method>} and HTTP response
      */
-    livenessWithHttpInfo() {
+    serviceMethodsListWithHttpInfo(serviceID) {
       let postBody = null;
+      // verify the required parameter 'serviceID' is set
+      if (serviceID === undefined || serviceID === null) {
+        throw new Error("Missing the required parameter 'serviceID' when calling serviceMethodsList");
+      }
 
       let pathParams = {
+        'serviceID': serviceID
       };
       let queryParams = {
       };
@@ -55,21 +62,22 @@ export default class HealthcheckApi {
       let authNames = [];
       let contentTypes = [];
       let accepts = ['application/json'];
-      let returnType = MessageOK;
+      let returnType = [Method];
       return this.apiClient.callApi(
-        '/health/liveness', 'GET',
+        '/services/{serviceID}/methods', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null
       );
     }
 
     /**
-     * Liveness check
-     * The test says that the service is alive and yet
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/MessageOK}
+     * Service methods
+     * List of registered service methods
+     * @param {String} serviceID ID of service
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Array.<module:model/Method>}
      */
-    liveness() {
-      return this.livenessWithHttpInfo()
+    serviceMethodsList(serviceID) {
+      return this.serviceMethodsListWithHttpInfo(serviceID)
         .then(function(response_and_data) {
           return response_and_data.data;
         });
@@ -77,11 +85,11 @@ export default class HealthcheckApi {
 
 
     /**
-     * Readiness check
-     * The test indicates readiness to receive traffic
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/MessageOK} and HTTP response
+     * Services
+     * List of registered services
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link Array.<module:model/Service>} and HTTP response
      */
-    readinessWithHttpInfo() {
+    servicesListWithHttpInfo() {
       let postBody = null;
 
       let pathParams = {
@@ -96,21 +104,21 @@ export default class HealthcheckApi {
       let authNames = [];
       let contentTypes = [];
       let accepts = ['application/json'];
-      let returnType = MessageOK;
+      let returnType = [Service];
       return this.apiClient.callApi(
-        '/health/readiness', 'GET',
+        '/services', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, null
       );
     }
 
     /**
-     * Readiness check
-     * The test indicates readiness to receive traffic
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/MessageOK}
+     * Services
+     * List of registered services
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Array.<module:model/Service>}
      */
-    readiness() {
-      return this.readinessWithHttpInfo()
+    servicesList() {
+      return this.servicesListWithHttpInfo()
         .then(function(response_and_data) {
           return response_and_data.data;
         });
