@@ -35,6 +35,3 @@ src/model/Stub.js
 src/model/StubHeaders.js
 src/model/StubInput.js
 src/model/StubOutput.js
-test/api/ServicesApi.spec.js
-test/model/Method.spec.js
-test/model/Service.spec.js
