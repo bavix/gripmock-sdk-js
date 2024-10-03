@@ -34,6 +34,7 @@ class StubInput {
      * Only for internal use.
      */
     static initialize(obj) { 
+        obj['ignoreArrayOrder'] = false;
     }
 
     /**
