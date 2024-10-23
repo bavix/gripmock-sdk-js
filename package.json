@@ -16,7 +16,7 @@
     "superagent": "^5.3.0"
   },
   "devDependencies": {
-    "@babel/cli": "^7.25.7",
+    "@babel/cli": "^7.25.9",
     "@babel/core": "^7.0.0",
     "@babel/plugin-proposal-class-properties": "^7.0.0",
     "@babel/plugin-proposal-decorators": "^7.0.0",
