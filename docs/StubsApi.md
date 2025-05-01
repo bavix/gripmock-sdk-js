@@ -18,7 +18,7 @@ Method | HTTP request | Description
 
 ## addStub
 
-> AddStub200Response addStub(addStubRequest)
+> [String] addStub(addStubRequest)
 
 Add a new stub to the store
 
@@ -48,7 +48,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**AddStub200Response**](AddStub200Response.md)
+**[String]**
 
 ### Authorization
 
