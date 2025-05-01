@@ -13,7 +13,6 @@
 
 
 import ApiClient from "../ApiClient";
-import AddStub200Response from '../model/AddStub200Response';
 import AddStubRequest from '../model/AddStubRequest';
 import SearchRequest from '../model/SearchRequest';
 import SearchResponse from '../model/SearchResponse';
@@ -43,7 +42,7 @@ export default class StubsApi {
      * Add a new stub to the store
      * Add a new stub to the store
      * @param {module:model/AddStubRequest} addStubRequest Create a new pet in the store
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/AddStub200Response} and HTTP response
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link Array.<String>} and HTTP response
      */
     addStubWithHttpInfo(addStubRequest) {
       let postBody = addStubRequest;
@@ -64,7 +63,7 @@ export default class StubsApi {
       let authNames = [];
       let contentTypes = ['application/json'];
       let accepts = ['application/json'];
-      let returnType = AddStub200Response;
+      let returnType = ['String'];
       return this.apiClient.callApi(
         '/stubs', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
@@ -76,7 +75,7 @@ export default class StubsApi {
      * Add a new stub to the store
      * Add a new stub to the store
      * @param {module:model/AddStubRequest} addStubRequest Create a new pet in the store
-     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/AddStub200Response}
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Array.<String>}
      */
     addStub(addStubRequest) {
       return this.addStubWithHttpInfo(addStubRequest)
