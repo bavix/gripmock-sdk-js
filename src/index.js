@@ -13,7 +13,6 @@
 
 
 import ApiClient from './ApiClient';
-import AddStub200Response from './model/AddStub200Response';
 import AddStubRequest from './model/AddStubRequest';
 import MessageOK from './model/MessageOK';
 import Method from './model/Method';
@@ -66,12 +65,6 @@ export {
      * @property {module:ApiClient}
      */
     ApiClient,
-
-    /**
-     * The AddStub200Response model constructor.
-     * @property {module:model/AddStub200Response}
-     */
-    AddStub200Response,
 
     /**
      * The AddStubRequest model constructor.

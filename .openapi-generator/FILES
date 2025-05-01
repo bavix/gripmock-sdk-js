@@ -2,7 +2,6 @@
 .gitignore
 .travis.yml
 README.md
-docs/AddStub200Response.md
 docs/AddStubRequest.md
 docs/HealthcheckApi.md
 docs/MessageOK.md
@@ -24,7 +23,6 @@ src/api/HealthcheckApi.js
 src/api/ServicesApi.js
 src/api/StubsApi.js
 src/index.js
-src/model/AddStub200Response.js
 src/model/AddStubRequest.js
 src/model/MessageOK.js
 src/model/Method.js
