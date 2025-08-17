@@ -15,7 +15,7 @@ Method | HTTP request | Description
 
 Liveness check
 
-The test says that the service is alive and yet
+This endpoint indicates that the service is alive and ready to handle requests
 
 ### Example
 
