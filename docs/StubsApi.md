@@ -5,7 +5,7 @@ All URIs are relative to *https://raw.githubusercontent.com/api*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**addStub**](StubsApi.md#addStub) | **POST** /stubs | Add a new stub to the store
-[**batchStubsDelete**](StubsApi.md#batchStubsDelete) | **POST** /stubs/batchDelete | Deletes a pack by IDs
+[**batchStubsDelete**](StubsApi.md#batchStubsDelete) | **POST** /stubs/batchDelete | Deletes a batch of stubs by IDs
 [**deleteStubByID**](StubsApi.md#deleteStubByID) | **DELETE** /stubs/{uuid} | Deletes stub by ID
 [**findByID**](StubsApi.md#findByID) | **GET** /stubs/{uuid} | Get Stub by ID
 [**listStubs**](StubsApi.md#listStubs) | **GET** /stubs | Getting a list of stubs
@@ -22,7 +22,7 @@ Method | HTTP request | Description
 
 Add a new stub to the store
 
-Add a new stub to the store
+Creates a new stub or multiple stubs and adds them to the storage
 
 ### Example
 
@@ -30,7 +30,7 @@ Add a new stub to the store
 import GripmockSdk from '@bavix/gripmock-sdk';
 
 let apiInstance = new GripmockSdk.StubsApi();
-let addStubRequest = new GripmockSdk.AddStubRequest(); // AddStubRequest | Create a new pet in the store
+let addStubRequest = new GripmockSdk.AddStubRequest(); // AddStubRequest | Create a new stub in the store
 apiInstance.addStub(addStubRequest).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
@@ -44,7 +44,7 @@ apiInstance.addStub(addStubRequest).then((data) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **addStubRequest** | [**AddStubRequest**](AddStubRequest.md)| Create a new pet in the store | 
+ **addStubRequest** | [**AddStubRequest**](AddStubRequest.md)| Create a new stub in the store | 
 
 ### Return type
 
@@ -64,7 +64,7 @@ No authorization required
 
 > batchStubsDelete(requestBody)
 
-Deletes a pack by IDs
+Deletes a batch of stubs by IDs
 
 Takes IDs as input and deletes them
 
@@ -74,7 +74,7 @@ Takes IDs as input and deletes them
 import GripmockSdk from '@bavix/gripmock-sdk';
 
 let apiInstance = new GripmockSdk.StubsApi();
-let requestBody = ["51c50050-ec27-4dae-a583-a32ca71a1dd5"]; // [String] | Create a new pet in the store
+let requestBody = ["51c50050-ec27-4dae-a583-a32ca71a1dd5"]; // [String] | Delete stubs by their IDs
 apiInstance.batchStubsDelete(requestBody).then(() => {
   console.log('API called successfully.');
 }, (error) => {
@@ -88,7 +88,7 @@ apiInstance.batchStubsDelete(requestBody).then(() => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **requestBody** | [**[String]**](String.md)| Create a new pet in the store | 
+ **requestBody** | [**[String]**](String.md)| Delete stubs by their IDs | 
 
 ### Return type
 
@@ -366,7 +366,7 @@ Performs a search for a stub by the given conditions
 import GripmockSdk from '@bavix/gripmock-sdk';
 
 let apiInstance = new GripmockSdk.StubsApi();
-let searchRequest = new GripmockSdk.SearchRequest(); // SearchRequest | Description of filtering
+let searchRequest = new GripmockSdk.SearchRequest(); // SearchRequest | Search criteria including service, method, headers and data to match against stubs
 apiInstance.searchStubs(searchRequest).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
@@ -380,7 +380,7 @@ apiInstance.searchStubs(searchRequest).then((data) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **searchRequest** | [**SearchRequest**](SearchRequest.md)| Description of filtering | 
+ **searchRequest** | [**SearchRequest**](SearchRequest.md)| Search criteria including service, method, headers and data to match against stubs | 
 
 ### Return type
 
