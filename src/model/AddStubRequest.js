@@ -15,6 +15,7 @@ import ApiClient from '../ApiClient';
 import Stub from './Stub';
 import StubHeaders from './StubHeaders';
 import StubInput from './StubInput';
+import StubOptions from './StubOptions';
 import StubOutput from './StubOutput';
 
 /**
@@ -36,7 +37,7 @@ class AddStubRequest {
         var match = 0;
         var errorMessages = [];
         try {
-            if (typeof instance === "[Stub]") {
+            if (instance instanceof [Stub]) {
                 this.actualInstance = instance;
             } else {
                 // plain JS object
@@ -52,7 +53,7 @@ class AddStubRequest {
         }
 
         try {
-            if (typeof instance === "Stub") {
+            if (instance instanceof Stub) {
                 this.actualInstance = instance;
             } else {
                 // plain JS object
@@ -165,6 +166,11 @@ AddStubRequest.prototype['inputs'] = undefined;
  * @member {module:model/StubOutput} output
  */
 AddStubRequest.prototype['output'] = undefined;
+
+/**
+ * @member {module:model/StubOptions} options
+ */
+AddStubRequest.prototype['options'] = undefined;
 
 
 AddStubRequest.OneOf = ["Stub", "[Stub]"];

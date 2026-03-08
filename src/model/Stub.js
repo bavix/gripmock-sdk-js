@@ -14,6 +14,7 @@
 import ApiClient from '../ApiClient';
 import StubHeaders from './StubHeaders';
 import StubInput from './StubInput';
+import StubOptions from './StubOptions';
 import StubOutput from './StubOutput';
 
 /**
@@ -83,6 +84,9 @@ class Stub {
             if (data.hasOwnProperty('output')) {
                 obj['output'] = StubOutput.constructFromObject(data['output']);
             }
+            if (data.hasOwnProperty('options')) {
+                obj['options'] = StubOptions.constructFromObject(data['options']);
+            }
         }
         return obj;
     }
@@ -132,6 +136,10 @@ class Stub {
         // validate the optional field `output`
         if (data['output']) { // data not null
           StubOutput.validateJSON(data['output']);
+        }
+        // validate the optional field `options`
+        if (data['options']) { // data not null
+          StubOptions.validateJSON(data['options']);
         }
 
         return true;
@@ -184,6 +192,11 @@ Stub.prototype['inputs'] = undefined;
  * @member {module:model/StubOutput} output
  */
 Stub.prototype['output'] = undefined;
+
+/**
+ * @member {module:model/StubOptions} options
+ */
+Stub.prototype['options'] = undefined;
 
 
 
