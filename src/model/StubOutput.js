@@ -12,6 +12,7 @@
  */
 
 import ApiClient from '../ApiClient';
+import StubOutputDetailsInner from './StubOutputDetailsInner';
 
 /**
  * The StubOutput model module.
@@ -62,6 +63,9 @@ class StubOutput {
             if (data.hasOwnProperty('code')) {
                 obj['code'] = ApiClient.convertToType(data['code'], 'Number');
             }
+            if (data.hasOwnProperty('details')) {
+                obj['details'] = ApiClient.convertToType(data['details'], [StubOutputDetailsInner]);
+            }
             if (data.hasOwnProperty('delay')) {
                 obj['delay'] = ApiClient.convertToType(data['delay'], 'String');
             }
@@ -82,6 +86,10 @@ class StubOutput {
         // ensure the json data is a string
         if (data['error'] && !(typeof data['error'] === 'string' || data['error'] instanceof String)) {
             throw new Error("Expected the field `error` to be a primitive type in the JSON string but got " + data['error']);
+        }
+        // ensure the json data is an array
+        if (!Array.isArray(data['details'])) {
+            throw new Error("Expected the field `details` to be an array in the JSON data but got " + data['details']);
         }
         // ensure the json data is a string
         if (data['delay'] && !(typeof data['delay'] === 'string' || data['delay'] instanceof String)) {
@@ -120,6 +128,12 @@ StubOutput.prototype['error'] = undefined;
  * @member {Number} code
  */
 StubOutput.prototype['code'] = undefined;
+
+/**
+ * gRPC status details packed into google.protobuf.Any (each item must contain type URL in `type`)
+ * @member {Array.<module:model/StubOutputDetailsInner>} details
+ */
+StubOutput.prototype['details'] = undefined;
 
 /**
  * Delay before sending the response

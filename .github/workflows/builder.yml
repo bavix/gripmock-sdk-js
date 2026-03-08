@@ -19,7 +19,7 @@ jobs:
         uses: openapi-generators/openapitools-generator-action@v1
         with:
           generator: javascript
-          openapi-url: https://raw.githubusercontent.com/bavix/gripmock-openapi/master/api.yaml
+          openapi-url: https://raw.githubusercontent.com/bavix/gripmock/master/api/api.yaml
           command-args: -o . --package-name gripmock-sdk-js -c config.yaml
 
       - name: Set org bavix

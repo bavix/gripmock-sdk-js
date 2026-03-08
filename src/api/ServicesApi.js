@@ -37,6 +37,54 @@ export default class ServicesApi {
 
 
     /**
+     * Remove service
+     * Removes a service added via POST /descriptors. Services from startup (proto path) cannot be removed.
+     * @param {String} serviceID Full service name (e.g. helloworld.Greeter)
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing HTTP response
+     */
+    deleteServiceWithHttpInfo(serviceID) {
+      let postBody = null;
+      // verify the required parameter 'serviceID' is set
+      if (serviceID === undefined || serviceID === null) {
+        throw new Error("Missing the required parameter 'serviceID' when calling deleteService");
+      }
+
+      let pathParams = {
+        'serviceID': serviceID
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = [];
+      let contentTypes = [];
+      let accepts = [];
+      let returnType = null;
+      return this.apiClient.callApi(
+        '/services/{serviceID}', 'DELETE',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null
+      );
+    }
+
+    /**
+     * Remove service
+     * Removes a service added via POST /descriptors. Services from startup (proto path) cannot be removed.
+     * @param {String} serviceID Full service name (e.g. helloworld.Greeter)
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}
+     */
+    deleteService(serviceID) {
+      return this.deleteServiceWithHttpInfo(serviceID)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
+
+    /**
      * Service methods
      * List of registered service methods
      * @param {String} serviceID ID of service

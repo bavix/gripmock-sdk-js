@@ -12,5 +12,6 @@ Name | Type | Description | Notes
 **input** | [**StubInput**](StubInput.md) |  | 
 **inputs** | [**[StubInput]**](StubInput.md) | Inputs to match against. If multiple inputs are provided, the stub will be matched if any of the inputs match. | [optional] 
 **output** | [**StubOutput**](StubOutput.md) |  | 
+**options** | [**StubOptions**](StubOptions.md) |  | [optional] 
 
 

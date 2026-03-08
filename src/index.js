@@ -13,7 +13,17 @@
 
 
 import ApiClient from './ApiClient';
+import AddDescriptorsResponse from './model/AddDescriptorsResponse';
 import AddStubRequest from './model/AddStubRequest';
+import CallRecord from './model/CallRecord';
+import DescriptorServiceIDs from './model/DescriptorServiceIDs';
+import McpError from './model/McpError';
+import McpID from './model/McpID';
+import McpInfoResponse from './model/McpInfoResponse';
+import McpRequest from './model/McpRequest';
+import McpResponse from './model/McpResponse';
+import McpTool from './model/McpTool';
+import McpTransport from './model/McpTransport';
 import MessageOK from './model/MessageOK';
 import Method from './model/Method';
 import SearchRequest from './model/SearchRequest';
@@ -22,10 +32,18 @@ import Service from './model/Service';
 import Stub from './model/Stub';
 import StubHeaders from './model/StubHeaders';
 import StubInput from './model/StubInput';
+import StubOptions from './model/StubOptions';
 import StubOutput from './model/StubOutput';
+import StubOutputDetailsInner from './model/StubOutputDetailsInner';
+import VerifyError from './model/VerifyError';
+import VerifyRequest from './model/VerifyRequest';
+import DescriptorsApi from './api/DescriptorsApi';
 import HealthcheckApi from './api/HealthcheckApi';
+import HistoryApi from './api/HistoryApi';
+import McpApi from './api/McpApi';
 import ServicesApi from './api/ServicesApi';
 import StubsApi from './api/StubsApi';
+import VerifyApi from './api/VerifyApi';
 
 
 /**
@@ -67,10 +85,70 @@ export {
     ApiClient,
 
     /**
+     * The AddDescriptorsResponse model constructor.
+     * @property {module:model/AddDescriptorsResponse}
+     */
+    AddDescriptorsResponse,
+
+    /**
      * The AddStubRequest model constructor.
      * @property {module:model/AddStubRequest}
      */
     AddStubRequest,
+
+    /**
+     * The CallRecord model constructor.
+     * @property {module:model/CallRecord}
+     */
+    CallRecord,
+
+    /**
+     * The DescriptorServiceIDs model constructor.
+     * @property {module:model/DescriptorServiceIDs}
+     */
+    DescriptorServiceIDs,
+
+    /**
+     * The McpError model constructor.
+     * @property {module:model/McpError}
+     */
+    McpError,
+
+    /**
+     * The McpID model constructor.
+     * @property {module:model/McpID}
+     */
+    McpID,
+
+    /**
+     * The McpInfoResponse model constructor.
+     * @property {module:model/McpInfoResponse}
+     */
+    McpInfoResponse,
+
+    /**
+     * The McpRequest model constructor.
+     * @property {module:model/McpRequest}
+     */
+    McpRequest,
+
+    /**
+     * The McpResponse model constructor.
+     * @property {module:model/McpResponse}
+     */
+    McpResponse,
+
+    /**
+     * The McpTool model constructor.
+     * @property {module:model/McpTool}
+     */
+    McpTool,
+
+    /**
+     * The McpTransport model constructor.
+     * @property {module:model/McpTransport}
+     */
+    McpTransport,
 
     /**
      * The MessageOK model constructor.
@@ -121,16 +199,58 @@ export {
     StubInput,
 
     /**
+     * The StubOptions model constructor.
+     * @property {module:model/StubOptions}
+     */
+    StubOptions,
+
+    /**
      * The StubOutput model constructor.
      * @property {module:model/StubOutput}
      */
     StubOutput,
 
     /**
+     * The StubOutputDetailsInner model constructor.
+     * @property {module:model/StubOutputDetailsInner}
+     */
+    StubOutputDetailsInner,
+
+    /**
+     * The VerifyError model constructor.
+     * @property {module:model/VerifyError}
+     */
+    VerifyError,
+
+    /**
+     * The VerifyRequest model constructor.
+     * @property {module:model/VerifyRequest}
+     */
+    VerifyRequest,
+
+    /**
+    * The DescriptorsApi service constructor.
+    * @property {module:api/DescriptorsApi}
+    */
+    DescriptorsApi,
+
+    /**
     * The HealthcheckApi service constructor.
     * @property {module:api/HealthcheckApi}
     */
     HealthcheckApi,
+
+    /**
+    * The HistoryApi service constructor.
+    * @property {module:api/HistoryApi}
+    */
+    HistoryApi,
+
+    /**
+    * The McpApi service constructor.
+    * @property {module:api/McpApi}
+    */
+    McpApi,
 
     /**
     * The ServicesApi service constructor.
@@ -142,5 +262,11 @@ export {
     * The StubsApi service constructor.
     * @property {module:api/StubsApi}
     */
-    StubsApi
+    StubsApi,
+
+    /**
+    * The VerifyApi service constructor.
+    * @property {module:api/VerifyApi}
+    */
+    VerifyApi
 };

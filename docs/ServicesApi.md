@@ -4,9 +4,54 @@ All URIs are relative to *https://raw.githubusercontent.com/api*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**deleteService**](ServicesApi.md#deleteService) | **DELETE** /services/{serviceID} | Remove service
 [**serviceMethodsList**](ServicesApi.md#serviceMethodsList) | **GET** /services/{serviceID}/methods | Service methods
 [**servicesList**](ServicesApi.md#servicesList) | **GET** /services | Services
 
+
+
+## deleteService
+
+> deleteService(serviceID)
+
+Remove service
+
+Removes a service added via POST /descriptors. Services from startup (proto path) cannot be removed.
+
+### Example
+
+```javascript
+import GripmockSdk from '@bavix/gripmock-sdk';
+
+let apiInstance = new GripmockSdk.ServicesApi();
+let serviceID = "serviceID_example"; // String | Full service name (e.g. helloworld.Greeter)
+apiInstance.deleteService(serviceID).then(() => {
+  console.log('API called successfully.');
+}, (error) => {
+  console.error(error);
+});
+
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **serviceID** | **String**| Full service name (e.g. helloworld.Greeter) | 
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: Not defined
 
 
 ## serviceMethodsList
