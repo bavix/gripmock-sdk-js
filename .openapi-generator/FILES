@@ -79,16 +79,3 @@ src/model/StubOutput.js
 src/model/StubOutputDetailsInner.js
 src/model/VerifyError.js
 src/model/VerifyRequest.js
-test/api/DashboardApi.spec.js
-test/api/SessionsApi.spec.js
-test/model/Dashboard.spec.js
-test/model/DashboardInfo.spec.js
-test/model/DashboardOverview.spec.js
-test/model/InspectCandidate.spec.js
-test/model/InspectCandidateEvent.spec.js
-test/model/InspectReport.spec.js
-test/model/InspectRequest.spec.js
-test/model/InspectStage.spec.js
-test/model/ProtoFieldSchema.spec.js
-test/model/ProtoMessageSchema.spec.js
-test/model/Sessions.spec.js

@@ -20,7 +20,7 @@ Returns MCP server metadata, supported protocol versions and transport details.
 ### Example
 
 ```javascript
-import GripmockSdk from '@bavix/@bavix/gripmock-sdk';
+import GripmockSdk from '@bavix/@bavix/@bavix/gripmock-sdk';
 
 let apiInstance = new GripmockSdk.McpApi();
 apiInstance.mcpInfo().then((data) => {
@@ -60,7 +60,7 @@ Accepts MCP JSON-RPC requests (&#x60;initialize&#x60;, &#x60;ping&#x60;, &#x60;t
 ### Example
 
 ```javascript
-import GripmockSdk from '@bavix/@bavix/gripmock-sdk';
+import GripmockSdk from '@bavix/@bavix/@bavix/gripmock-sdk';
 
 let apiInstance = new GripmockSdk.McpApi();
 let mcpRequest = new GripmockSdk.McpRequest(); // McpRequest | 
