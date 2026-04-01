@@ -8,6 +8,7 @@ Method | HTTP request | Description
 [**batchStubsDelete**](StubsApi.md#batchStubsDelete) | **POST** /stubs/batchDelete | Deletes a batch of stubs by IDs
 [**deleteStubByID**](StubsApi.md#deleteStubByID) | **DELETE** /stubs/{uuid} | Deletes stub by ID
 [**findByID**](StubsApi.md#findByID) | **GET** /stubs/{uuid} | Get Stub by ID
+[**inspectStubs**](StubsApi.md#inspectStubs) | **POST** /stubs/inspect | Inspect stub matching decision path
 [**listStubs**](StubsApi.md#listStubs) | **GET** /stubs | Getting a list of stubs
 [**listUnusedStubs**](StubsApi.md#listUnusedStubs) | **GET** /stubs/unused | Getting a list of unused stubs
 [**listUsedStubs**](StubsApi.md#listUsedStubs) | **GET** /stubs/used | Getting a list of used stubs
@@ -189,6 +190,50 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
+- **Accept**: application/json
+
+
+## inspectStubs
+
+> InspectReport inspectStubs(inspectRequest)
+
+Inspect stub matching decision path
+
+Returns detailed matching stages/candidates for a query without consuming stub times.
+
+### Example
+
+```javascript
+import GripmockSdk from '@bavix/gripmock-sdk';
+
+let apiInstance = new GripmockSdk.StubsApi();
+let inspectRequest = new GripmockSdk.InspectRequest(); // InspectRequest | Inspect criteria including service, method, optional headers/session and input messages
+apiInstance.inspectStubs(inspectRequest).then((data) => {
+  console.log('API called successfully. Returned data: ' + data);
+}, (error) => {
+  console.error(error);
+});
+
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **inspectRequest** | [**InspectRequest**](InspectRequest.md)| Inspect criteria including service, method, optional headers/session and input messages | 
+
+### Return type
+
+[**InspectReport**](InspectReport.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: application/json
 - **Accept**: application/json
 
 

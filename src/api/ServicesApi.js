@@ -85,6 +85,109 @@ export default class ServicesApi {
 
 
     /**
+     * Service details
+     * Returns exact metadata for one service including all methods and streaming capabilities.
+     * @param {String} serviceID Full service name (e.g. helloworld.Greeter)
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/Service} and HTTP response
+     */
+    serviceGetWithHttpInfo(serviceID) {
+      let postBody = null;
+      // verify the required parameter 'serviceID' is set
+      if (serviceID === undefined || serviceID === null) {
+        throw new Error("Missing the required parameter 'serviceID' when calling serviceGet");
+      }
+
+      let pathParams = {
+        'serviceID': serviceID
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = [];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+      let returnType = Service;
+      return this.apiClient.callApi(
+        '/services/{serviceID}', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null
+      );
+    }
+
+    /**
+     * Service details
+     * Returns exact metadata for one service including all methods and streaming capabilities.
+     * @param {String} serviceID Full service name (e.g. helloworld.Greeter)
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/Service}
+     */
+    serviceGet(serviceID) {
+      return this.serviceGetWithHttpInfo(serviceID)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
+
+    /**
+     * Service method details
+     * Returns exact metadata for one method (by short name or full method id).
+     * @param {String} serviceID Full service name (e.g. helloworld.Greeter)
+     * @param {String} methodID Method short name (e.g. SayHello) or full id (e.g. helloworld.Greeter/SayHello)
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/Method} and HTTP response
+     */
+    serviceMethodGetWithHttpInfo(serviceID, methodID) {
+      let postBody = null;
+      // verify the required parameter 'serviceID' is set
+      if (serviceID === undefined || serviceID === null) {
+        throw new Error("Missing the required parameter 'serviceID' when calling serviceMethodGet");
+      }
+      // verify the required parameter 'methodID' is set
+      if (methodID === undefined || methodID === null) {
+        throw new Error("Missing the required parameter 'methodID' when calling serviceMethodGet");
+      }
+
+      let pathParams = {
+        'serviceID': serviceID,
+        'methodID': methodID
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = [];
+      let contentTypes = [];
+      let accepts = ['application/json'];
+      let returnType = Method;
+      return this.apiClient.callApi(
+        '/services/{serviceID}/methods/{methodID}', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null
+      );
+    }
+
+    /**
+     * Service method details
+     * Returns exact metadata for one method (by short name or full method id).
+     * @param {String} serviceID Full service name (e.g. helloworld.Greeter)
+     * @param {String} methodID Method short name (e.g. SayHello) or full id (e.g. helloworld.Greeter/SayHello)
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/Method}
+     */
+    serviceMethodGet(serviceID, methodID) {
+      return this.serviceMethodGetWithHttpInfo(serviceID, methodID)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
+
+    /**
      * Service methods
      * List of registered service methods
      * @param {String} serviceID ID of service

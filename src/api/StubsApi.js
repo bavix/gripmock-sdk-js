@@ -14,6 +14,8 @@
 
 import ApiClient from "../ApiClient";
 import AddStubRequest from '../model/AddStubRequest';
+import InspectReport from '../model/InspectReport';
+import InspectRequest from '../model/InspectRequest';
 import SearchRequest from '../model/SearchRequest';
 import SearchResponse from '../model/SearchResponse';
 import Stub from '../model/Stub';
@@ -222,6 +224,53 @@ export default class StubsApi {
      */
     findByID(uuid) {
       return this.findByIDWithHttpInfo(uuid)
+        .then(function(response_and_data) {
+          return response_and_data.data;
+        });
+    }
+
+
+    /**
+     * Inspect stub matching decision path
+     * Returns detailed matching stages/candidates for a query without consuming stub times.
+     * @param {module:model/InspectRequest} inspectRequest Inspect criteria including service, method, optional headers/session and input messages
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link module:model/InspectReport} and HTTP response
+     */
+    inspectStubsWithHttpInfo(inspectRequest) {
+      let postBody = inspectRequest;
+      // verify the required parameter 'inspectRequest' is set
+      if (inspectRequest === undefined || inspectRequest === null) {
+        throw new Error("Missing the required parameter 'inspectRequest' when calling inspectStubs");
+      }
+
+      let pathParams = {
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = [];
+      let contentTypes = ['application/json'];
+      let accepts = ['application/json'];
+      let returnType = InspectReport;
+      return this.apiClient.callApi(
+        '/stubs/inspect', 'POST',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, null
+      );
+    }
+
+    /**
+     * Inspect stub matching decision path
+     * Returns detailed matching stages/candidates for a query without consuming stub times.
+     * @param {module:model/InspectRequest} inspectRequest Inspect criteria including service, method, optional headers/session and input messages
+     * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link module:model/InspectReport}
+     */
+    inspectStubs(inspectRequest) {
+      return this.inspectStubsWithHttpInfo(inspectRequest)
         .then(function(response_and_data) {
           return response_and_data.data;
         });
