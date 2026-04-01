@@ -12,6 +12,7 @@
  */
 
 import ApiClient from '../ApiClient';
+import ProtoMessageSchema from './ProtoMessageSchema';
 
 /**
  * The Method model module.
@@ -24,10 +25,11 @@ class Method {
      * @alias module:model/Method
      * @param id {String} 
      * @param name {String} 
+     * @param methodType {module:model/Method.MethodTypeEnum} gRPC method interaction type
      */
-    constructor(id, name) { 
+    constructor(id, name, methodType) { 
         
-        Method.initialize(this, id, name);
+        Method.initialize(this, id, name, methodType);
     }
 
     /**
@@ -35,9 +37,10 @@ class Method {
      * This method is used by the constructors of any subclasses, in order to implement multiple inheritance (mix-ins).
      * Only for internal use.
      */
-    static initialize(obj, id, name) { 
+    static initialize(obj, id, name, methodType) { 
         obj['id'] = id;
         obj['name'] = name;
+        obj['methodType'] = methodType;
     }
 
     /**
@@ -56,6 +59,27 @@ class Method {
             }
             if (data.hasOwnProperty('name')) {
                 obj['name'] = ApiClient.convertToType(data['name'], 'String');
+            }
+            if (data.hasOwnProperty('methodType')) {
+                obj['methodType'] = ApiClient.convertToType(data['methodType'], 'String');
+            }
+            if (data.hasOwnProperty('requestType')) {
+                obj['requestType'] = ApiClient.convertToType(data['requestType'], 'String');
+            }
+            if (data.hasOwnProperty('responseType')) {
+                obj['responseType'] = ApiClient.convertToType(data['responseType'], 'String');
+            }
+            if (data.hasOwnProperty('requestSchema')) {
+                obj['requestSchema'] = ProtoMessageSchema.constructFromObject(data['requestSchema']);
+            }
+            if (data.hasOwnProperty('responseSchema')) {
+                obj['responseSchema'] = ProtoMessageSchema.constructFromObject(data['responseSchema']);
+            }
+            if (data.hasOwnProperty('clientStreaming')) {
+                obj['clientStreaming'] = ApiClient.convertToType(data['clientStreaming'], 'Boolean');
+            }
+            if (data.hasOwnProperty('serverStreaming')) {
+                obj['serverStreaming'] = ApiClient.convertToType(data['serverStreaming'], 'Boolean');
             }
         }
         return obj;
@@ -81,6 +105,26 @@ class Method {
         if (data['name'] && !(typeof data['name'] === 'string' || data['name'] instanceof String)) {
             throw new Error("Expected the field `name` to be a primitive type in the JSON string but got " + data['name']);
         }
+        // ensure the json data is a string
+        if (data['methodType'] && !(typeof data['methodType'] === 'string' || data['methodType'] instanceof String)) {
+            throw new Error("Expected the field `methodType` to be a primitive type in the JSON string but got " + data['methodType']);
+        }
+        // ensure the json data is a string
+        if (data['requestType'] && !(typeof data['requestType'] === 'string' || data['requestType'] instanceof String)) {
+            throw new Error("Expected the field `requestType` to be a primitive type in the JSON string but got " + data['requestType']);
+        }
+        // ensure the json data is a string
+        if (data['responseType'] && !(typeof data['responseType'] === 'string' || data['responseType'] instanceof String)) {
+            throw new Error("Expected the field `responseType` to be a primitive type in the JSON string but got " + data['responseType']);
+        }
+        // validate the optional field `requestSchema`
+        if (data['requestSchema']) { // data not null
+          ProtoMessageSchema.validateJSON(data['requestSchema']);
+        }
+        // validate the optional field `responseSchema`
+        if (data['responseSchema']) { // data not null
+          ProtoMessageSchema.validateJSON(data['responseSchema']);
+        }
 
         return true;
     }
@@ -88,7 +132,7 @@ class Method {
 
 }
 
-Method.RequiredProperties = ["id", "name"];
+Method.RequiredProperties = ["id", "name", "methodType"];
 
 /**
  * @member {String} id
@@ -100,8 +144,81 @@ Method.prototype['id'] = undefined;
  */
 Method.prototype['name'] = undefined;
 
+/**
+ * gRPC method interaction type
+ * @member {module:model/Method.MethodTypeEnum} methodType
+ */
+Method.prototype['methodType'] = undefined;
+
+/**
+ * Fully-qualified protobuf request message type
+ * @member {String} requestType
+ */
+Method.prototype['requestType'] = undefined;
+
+/**
+ * Fully-qualified protobuf response message type
+ * @member {String} responseType
+ */
+Method.prototype['responseType'] = undefined;
+
+/**
+ * @member {module:model/ProtoMessageSchema} requestSchema
+ */
+Method.prototype['requestSchema'] = undefined;
+
+/**
+ * @member {module:model/ProtoMessageSchema} responseSchema
+ */
+Method.prototype['responseSchema'] = undefined;
+
+/**
+ * Indicates client-side streaming method
+ * @member {Boolean} clientStreaming
+ */
+Method.prototype['clientStreaming'] = undefined;
+
+/**
+ * Indicates server-side streaming method
+ * @member {Boolean} serverStreaming
+ */
+Method.prototype['serverStreaming'] = undefined;
 
 
+
+
+
+/**
+ * Allowed values for the <code>methodType</code> property.
+ * @enum {String}
+ * @readonly
+ */
+Method['MethodTypeEnum'] = {
+
+    /**
+     * value: "unary"
+     * @const
+     */
+    "unary": "unary",
+
+    /**
+     * value: "client_streaming"
+     * @const
+     */
+    "client_streaming": "client_streaming",
+
+    /**
+     * value: "server_streaming"
+     * @const
+     */
+    "server_streaming": "server_streaming",
+
+    /**
+     * value: "bidi_streaming"
+     * @const
+     */
+    "bidi_streaming": "bidi_streaming"
+};
 
 
 

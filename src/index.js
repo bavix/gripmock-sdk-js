@@ -16,19 +16,23 @@ import ApiClient from './ApiClient';
 import AddDescriptorsResponse from './model/AddDescriptorsResponse';
 import AddStubRequest from './model/AddStubRequest';
 import CallRecord from './model/CallRecord';
+import Dashboard from './model/Dashboard';
+import DashboardInfo from './model/DashboardInfo';
+import DashboardOverview from './model/DashboardOverview';
 import DescriptorServiceIDs from './model/DescriptorServiceIDs';
-import McpError from './model/McpError';
-import McpID from './model/McpID';
-import McpInfoResponse from './model/McpInfoResponse';
-import McpRequest from './model/McpRequest';
-import McpResponse from './model/McpResponse';
-import McpTool from './model/McpTool';
-import McpTransport from './model/McpTransport';
+import InspectCandidate from './model/InspectCandidate';
+import InspectCandidateEvent from './model/InspectCandidateEvent';
+import InspectReport from './model/InspectReport';
+import InspectRequest from './model/InspectRequest';
+import InspectStage from './model/InspectStage';
 import MessageOK from './model/MessageOK';
 import Method from './model/Method';
+import ProtoFieldSchema from './model/ProtoFieldSchema';
+import ProtoMessageSchema from './model/ProtoMessageSchema';
 import SearchRequest from './model/SearchRequest';
 import SearchResponse from './model/SearchResponse';
 import Service from './model/Service';
+import Sessions from './model/Sessions';
 import Stub from './model/Stub';
 import StubHeaders from './model/StubHeaders';
 import StubInput from './model/StubInput';
@@ -37,11 +41,12 @@ import StubOutput from './model/StubOutput';
 import StubOutputDetailsInner from './model/StubOutputDetailsInner';
 import VerifyError from './model/VerifyError';
 import VerifyRequest from './model/VerifyRequest';
+import DashboardApi from './api/DashboardApi';
 import DescriptorsApi from './api/DescriptorsApi';
 import HealthcheckApi from './api/HealthcheckApi';
 import HistoryApi from './api/HistoryApi';
-import McpApi from './api/McpApi';
 import ServicesApi from './api/ServicesApi';
+import SessionsApi from './api/SessionsApi';
 import StubsApi from './api/StubsApi';
 import VerifyApi from './api/VerifyApi';
 
@@ -103,52 +108,58 @@ export {
     CallRecord,
 
     /**
+     * The Dashboard model constructor.
+     * @property {module:model/Dashboard}
+     */
+    Dashboard,
+
+    /**
+     * The DashboardInfo model constructor.
+     * @property {module:model/DashboardInfo}
+     */
+    DashboardInfo,
+
+    /**
+     * The DashboardOverview model constructor.
+     * @property {module:model/DashboardOverview}
+     */
+    DashboardOverview,
+
+    /**
      * The DescriptorServiceIDs model constructor.
      * @property {module:model/DescriptorServiceIDs}
      */
     DescriptorServiceIDs,
 
     /**
-     * The McpError model constructor.
-     * @property {module:model/McpError}
+     * The InspectCandidate model constructor.
+     * @property {module:model/InspectCandidate}
      */
-    McpError,
+    InspectCandidate,
 
     /**
-     * The McpID model constructor.
-     * @property {module:model/McpID}
+     * The InspectCandidateEvent model constructor.
+     * @property {module:model/InspectCandidateEvent}
      */
-    McpID,
+    InspectCandidateEvent,
 
     /**
-     * The McpInfoResponse model constructor.
-     * @property {module:model/McpInfoResponse}
+     * The InspectReport model constructor.
+     * @property {module:model/InspectReport}
      */
-    McpInfoResponse,
+    InspectReport,
 
     /**
-     * The McpRequest model constructor.
-     * @property {module:model/McpRequest}
+     * The InspectRequest model constructor.
+     * @property {module:model/InspectRequest}
      */
-    McpRequest,
+    InspectRequest,
 
     /**
-     * The McpResponse model constructor.
-     * @property {module:model/McpResponse}
+     * The InspectStage model constructor.
+     * @property {module:model/InspectStage}
      */
-    McpResponse,
-
-    /**
-     * The McpTool model constructor.
-     * @property {module:model/McpTool}
-     */
-    McpTool,
-
-    /**
-     * The McpTransport model constructor.
-     * @property {module:model/McpTransport}
-     */
-    McpTransport,
+    InspectStage,
 
     /**
      * The MessageOK model constructor.
@@ -161,6 +172,18 @@ export {
      * @property {module:model/Method}
      */
     Method,
+
+    /**
+     * The ProtoFieldSchema model constructor.
+     * @property {module:model/ProtoFieldSchema}
+     */
+    ProtoFieldSchema,
+
+    /**
+     * The ProtoMessageSchema model constructor.
+     * @property {module:model/ProtoMessageSchema}
+     */
+    ProtoMessageSchema,
 
     /**
      * The SearchRequest model constructor.
@@ -179,6 +202,12 @@ export {
      * @property {module:model/Service}
      */
     Service,
+
+    /**
+     * The Sessions model constructor.
+     * @property {module:model/Sessions}
+     */
+    Sessions,
 
     /**
      * The Stub model constructor.
@@ -229,6 +258,12 @@ export {
     VerifyRequest,
 
     /**
+    * The DashboardApi service constructor.
+    * @property {module:api/DashboardApi}
+    */
+    DashboardApi,
+
+    /**
     * The DescriptorsApi service constructor.
     * @property {module:api/DescriptorsApi}
     */
@@ -247,16 +282,16 @@ export {
     HistoryApi,
 
     /**
-    * The McpApi service constructor.
-    * @property {module:api/McpApi}
-    */
-    McpApi,
-
-    /**
     * The ServicesApi service constructor.
     * @property {module:api/ServicesApi}
     */
     ServicesApi,
+
+    /**
+    * The SessionsApi service constructor.
+    * @property {module:api/SessionsApi}
+    */
+    SessionsApi,
 
     /**
     * The StubsApi service constructor.
