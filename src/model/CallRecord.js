@@ -53,20 +53,32 @@ class CallRecord {
             if (data.hasOwnProperty('method')) {
                 obj['method'] = ApiClient.convertToType(data['method'], 'String');
             }
-            if (data.hasOwnProperty('request')) {
-                obj['request'] = ApiClient.convertToType(data['request'], {'String': Object});
-            }
-            if (data.hasOwnProperty('response')) {
-                obj['response'] = ApiClient.convertToType(data['response'], {'String': Object});
-            }
-            if (data.hasOwnProperty('error')) {
-                obj['error'] = ApiClient.convertToType(data['error'], 'String');
+            if (data.hasOwnProperty('session')) {
+                obj['session'] = ApiClient.convertToType(data['session'], 'String');
             }
             if (data.hasOwnProperty('stubId')) {
                 obj['stubId'] = ApiClient.convertToType(data['stubId'], 'String');
             }
             if (data.hasOwnProperty('timestamp')) {
                 obj['timestamp'] = ApiClient.convertToType(data['timestamp'], 'Date');
+            }
+            if (data.hasOwnProperty('request')) {
+                obj['request'] = ApiClient.convertToType(data['request'], {'String': Object});
+            }
+            if (data.hasOwnProperty('requests')) {
+                obj['requests'] = ApiClient.convertToType(data['requests'], [{'String': Object}]);
+            }
+            if (data.hasOwnProperty('response')) {
+                obj['response'] = ApiClient.convertToType(data['response'], {'String': Object});
+            }
+            if (data.hasOwnProperty('responses')) {
+                obj['responses'] = ApiClient.convertToType(data['responses'], [{'String': Object}]);
+            }
+            if (data.hasOwnProperty('code')) {
+                obj['code'] = ApiClient.convertToType(data['code'], 'Number');
+            }
+            if (data.hasOwnProperty('error')) {
+                obj['error'] = ApiClient.convertToType(data['error'], 'String');
             }
         }
         return obj;
@@ -87,12 +99,24 @@ class CallRecord {
             throw new Error("Expected the field `method` to be a primitive type in the JSON string but got " + data['method']);
         }
         // ensure the json data is a string
-        if (data['error'] && !(typeof data['error'] === 'string' || data['error'] instanceof String)) {
-            throw new Error("Expected the field `error` to be a primitive type in the JSON string but got " + data['error']);
+        if (data['session'] && !(typeof data['session'] === 'string' || data['session'] instanceof String)) {
+            throw new Error("Expected the field `session` to be a primitive type in the JSON string but got " + data['session']);
         }
         // ensure the json data is a string
         if (data['stubId'] && !(typeof data['stubId'] === 'string' || data['stubId'] instanceof String)) {
             throw new Error("Expected the field `stubId` to be a primitive type in the JSON string but got " + data['stubId']);
+        }
+        // ensure the json data is an array
+        if (!Array.isArray(data['requests'])) {
+            throw new Error("Expected the field `requests` to be an array in the JSON data but got " + data['requests']);
+        }
+        // ensure the json data is an array
+        if (!Array.isArray(data['responses'])) {
+            throw new Error("Expected the field `responses` to be an array in the JSON data but got " + data['responses']);
+        }
+        // ensure the json data is a string
+        if (data['error'] && !(typeof data['error'] === 'string' || data['error'] instanceof String)) {
+            throw new Error("Expected the field `error` to be a primitive type in the JSON string but got " + data['error']);
         }
 
         return true;
@@ -114,21 +138,13 @@ CallRecord.prototype['service'] = undefined;
 CallRecord.prototype['method'] = undefined;
 
 /**
- * @member {Object.<String, Object>} request
+ * Session ID (empty = global)
+ * @member {String} session
  */
-CallRecord.prototype['request'] = undefined;
+CallRecord.prototype['session'] = undefined;
 
 /**
- * @member {Object.<String, Object>} response
- */
-CallRecord.prototype['response'] = undefined;
-
-/**
- * @member {String} error
- */
-CallRecord.prototype['error'] = undefined;
-
-/**
+ * Stub identifier
  * @member {String} stubId
  */
 CallRecord.prototype['stubId'] = undefined;
@@ -137,6 +153,41 @@ CallRecord.prototype['stubId'] = undefined;
  * @member {Date} timestamp
  */
 CallRecord.prototype['timestamp'] = undefined;
+
+/**
+ * Deprecated: use requests for streaming calls
+ * @member {Object.<String, Object>} request
+ */
+CallRecord.prototype['request'] = undefined;
+
+/**
+ * Request messages for streaming calls (client stream, bidi stream)
+ * @member {Array.<Object.<String, Object>>} requests
+ */
+CallRecord.prototype['requests'] = undefined;
+
+/**
+ * Deprecated: use responses for streaming calls
+ * @member {Object.<String, Object>} response
+ */
+CallRecord.prototype['response'] = undefined;
+
+/**
+ * Response messages for streaming calls (server stream, bidi stream)
+ * @member {Array.<Object.<String, Object>>} responses
+ */
+CallRecord.prototype['responses'] = undefined;
+
+/**
+ * gRPC status code (e.g., 0 for OK, 5 for NotFound)
+ * @member {Number} code
+ */
+CallRecord.prototype['code'] = undefined;
+
+/**
+ * @member {String} error
+ */
+CallRecord.prototype['error'] = undefined;
 
 
 
