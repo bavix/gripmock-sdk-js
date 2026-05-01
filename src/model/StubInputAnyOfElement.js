@@ -12,21 +12,20 @@
  */
 
 import ApiClient from '../ApiClient';
-import StubInputAnyOfElement from './StubInputAnyOfElement';
 
 /**
- * The StubInput model module.
- * @module model/StubInput
+ * The StubInputAnyOfElement model module.
+ * @module model/StubInputAnyOfElement
  * @version 1.0.0
  */
-class StubInput {
+class StubInputAnyOfElement {
     /**
-     * Constructs a new <code>StubInput</code>.
-     * @alias module:model/StubInput
+     * Constructs a new <code>StubInputAnyOfElement</code>.
+     * @alias module:model/StubInputAnyOfElement
      */
     constructor() { 
         
-        StubInput.initialize(this);
+        StubInputAnyOfElement.initialize(this);
     }
 
     /**
@@ -39,15 +38,15 @@ class StubInput {
     }
 
     /**
-     * Constructs a <code>StubInput</code> from a plain JavaScript object, optionally creating a new instance.
+     * Constructs a <code>StubInputAnyOfElement</code> from a plain JavaScript object, optionally creating a new instance.
      * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
      * @param {Object} data The plain JavaScript object bearing properties of interest.
-     * @param {module:model/StubInput} obj Optional instance to populate.
-     * @return {module:model/StubInput} The populated <code>StubInput</code> instance.
+     * @param {module:model/StubInputAnyOfElement} obj Optional instance to populate.
+     * @return {module:model/StubInputAnyOfElement} The populated <code>StubInputAnyOfElement</code> instance.
      */
     static constructFromObject(data, obj) {
         if (data) {
-            obj = obj || new StubInput();
+            obj = obj || new StubInputAnyOfElement();
 
             if (data.hasOwnProperty('ignoreArrayOrder')) {
                 obj['ignoreArrayOrder'] = ApiClient.convertToType(data['ignoreArrayOrder'], 'Boolean');
@@ -61,29 +60,16 @@ class StubInput {
             if (data.hasOwnProperty('matches')) {
                 obj['matches'] = ApiClient.convertToType(data['matches'], {'String': Object});
             }
-            if (data.hasOwnProperty('anyOf')) {
-                obj['anyOf'] = ApiClient.convertToType(data['anyOf'], [StubInputAnyOfElement]);
-            }
         }
         return obj;
     }
 
     /**
-     * Validates the JSON data with respect to <code>StubInput</code>.
+     * Validates the JSON data with respect to <code>StubInputAnyOfElement</code>.
      * @param {Object} data The plain JavaScript object bearing properties of interest.
-     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>StubInput</code>.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>StubInputAnyOfElement</code>.
      */
     static validateJSON(data) {
-        if (data['anyOf']) { // data not null
-            // ensure the json data is an array
-            if (!Array.isArray(data['anyOf'])) {
-                throw new Error("Expected the field `anyOf` to be an array in the JSON data but got " + data['anyOf']);
-            }
-            // validate the optional field `anyOf` (array)
-            for (const item of data['anyOf']) {
-                StubInputAnyOfElement.validateJSON(item);
-            };
-        }
 
         return true;
     }
@@ -97,33 +83,27 @@ class StubInput {
  * @member {Boolean} ignoreArrayOrder
  * @default false
  */
-StubInput.prototype['ignoreArrayOrder'] = false;
+StubInputAnyOfElement.prototype['ignoreArrayOrder'] = false;
 
 /**
  * @member {Object.<String, Object>} equals
  */
-StubInput.prototype['equals'] = undefined;
+StubInputAnyOfElement.prototype['equals'] = undefined;
 
 /**
  * @member {Object.<String, Object>} contains
  */
-StubInput.prototype['contains'] = undefined;
+StubInputAnyOfElement.prototype['contains'] = undefined;
 
 /**
  * @member {Object.<String, Object>} matches
  */
-StubInput.prototype['matches'] = undefined;
-
-/**
- * Alternative input matchers (OR logic)
- * @member {Array.<module:model/StubInputAnyOfElement>} anyOf
- */
-StubInput.prototype['anyOf'] = undefined;
+StubInputAnyOfElement.prototype['matches'] = undefined;
 
 
 
 
 
 
-export default StubInput;
+export default StubInputAnyOfElement;
 
