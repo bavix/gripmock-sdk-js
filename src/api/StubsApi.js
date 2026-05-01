@@ -279,15 +279,31 @@ export default class StubsApi {
 
     /**
      * Getting a list of stubs
-     * The list of stubs is required to view all added stubs
+     * The list of stubs is required to view all added stubs. Use source query param to filter by source.
+     * @param {Object} opts Optional parameters
+     * @param {String} [source] Filter by source (file, rest, mcp, proxy)
+     * @param {String} [service] Filter by service name (exact match)
+     * @param {String} [method] Filter by method name (exact match)
+     * @param {String} [session] Filter by session ID (empty means global stubs)
+     * @param {Number} [limit] Maximum number of returned stubs
+     * @param {Number} [offset] Number of stubs to skip before returning results
+     * @param {String} [sort] Sort order for result list
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with an object containing data of type {@link Array.<module:model/Stub>} and HTTP response
      */
-    listStubsWithHttpInfo() {
+    listStubsWithHttpInfo(opts) {
+      opts = opts || {};
       let postBody = null;
 
       let pathParams = {
       };
       let queryParams = {
+        'source': opts['source'],
+        'service': opts['service'],
+        'method': opts['method'],
+        'session': opts['session'],
+        'limit': opts['limit'],
+        'offset': opts['offset'],
+        'sort': opts['sort']
       };
       let headerParams = {
       };
@@ -307,11 +323,19 @@ export default class StubsApi {
 
     /**
      * Getting a list of stubs
-     * The list of stubs is required to view all added stubs
+     * The list of stubs is required to view all added stubs. Use source query param to filter by source.
+     * @param {Object} opts Optional parameters
+     * @param {String} opts.source Filter by source (file, rest, mcp, proxy)
+     * @param {String} opts.service Filter by service name (exact match)
+     * @param {String} opts.method Filter by method name (exact match)
+     * @param {String} opts.session Filter by session ID (empty means global stubs)
+     * @param {Number} opts.limit Maximum number of returned stubs
+     * @param {Number} opts.offset Number of stubs to skip before returning results
+     * @param {String} opts.sort Sort order for result list
      * @return {Promise} a {@link https://www.promisejs.org/|Promise}, with data of type {@link Array.<module:model/Stub>}
      */
-    listStubs() {
-      return this.listStubsWithHttpInfo()
+    listStubs(opts) {
+      return this.listStubsWithHttpInfo(opts)
         .then(function(response_and_data) {
           return response_and_data.data;
         });
