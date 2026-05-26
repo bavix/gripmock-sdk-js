@@ -13,6 +13,7 @@
 
 import ApiClient from '../ApiClient';
 import Stub from './Stub';
+import StubEffect from './StubEffect';
 import StubHeaders from './StubHeaders';
 import StubInput from './StubInput';
 import StubOptions from './StubOptions';
@@ -171,6 +172,18 @@ AddStubRequest.prototype['output'] = undefined;
  * @member {module:model/StubOptions} options
  */
 AddStubRequest.prototype['options'] = undefined;
+
+/**
+ * Side effects applied after successful stub match
+ * @member {Array.<module:model/StubEffect>} effects
+ */
+AddStubRequest.prototype['effects'] = undefined;
+
+/**
+ * Source of the stub (file, rest, mcp, proxy)
+ * @member {String} source
+ */
+AddStubRequest.prototype['source'] = undefined;
 
 
 AddStubRequest.OneOf = ["Stub", "[Stub]"];
