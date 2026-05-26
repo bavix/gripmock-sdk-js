@@ -239,11 +239,11 @@ No authorization required
 
 ## listStubs
 
-> [Stub] listStubs()
+> [Stub] listStubs(opts)
 
 Getting a list of stubs
 
-The list of stubs is required to view all added stubs
+The list of stubs is required to view all added stubs. Use source query param to filter by source.
 
 ### Example
 
@@ -251,7 +251,16 @@ The list of stubs is required to view all added stubs
 import GripmockSdk from '@bavix/gripmock-sdk';
 
 let apiInstance = new GripmockSdk.StubsApi();
-apiInstance.listStubs().then((data) => {
+let opts = {
+  'source': "source_example", // String | Filter by source (file, rest, mcp, proxy)
+  'service': "service_example", // String | Filter by service name (exact match)
+  'method': "method_example", // String | Filter by method name (exact match)
+  'session': "session_example", // String | Filter by session ID (empty means global stubs)
+  'limit': 56, // Number | Maximum number of returned stubs
+  'offset': 56, // Number | Number of stubs to skip before returning results
+  'sort': "sort_example" // String | Sort order for result list
+};
+apiInstance.listStubs(opts).then((data) => {
   console.log('API called successfully. Returned data: ' + data);
 }, (error) => {
   console.error(error);
@@ -261,7 +270,16 @@ apiInstance.listStubs().then((data) => {
 
 ### Parameters
 
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **source** | **String**| Filter by source (file, rest, mcp, proxy) | [optional] 
+ **service** | **String**| Filter by service name (exact match) | [optional] 
+ **method** | **String**| Filter by method name (exact match) | [optional] 
+ **session** | **String**| Filter by session ID (empty means global stubs) | [optional] 
+ **limit** | **Number**| Maximum number of returned stubs | [optional] 
+ **offset** | **Number**| Number of stubs to skip before returning results | [optional] 
+ **sort** | **String**| Sort order for result list | [optional] 
 
 ### Return type
 

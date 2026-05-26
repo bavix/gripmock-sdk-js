@@ -34,8 +34,11 @@ import SearchResponse from './model/SearchResponse';
 import Service from './model/Service';
 import Sessions from './model/Sessions';
 import Stub from './model/Stub';
+import StubEffect from './model/StubEffect';
 import StubHeaders from './model/StubHeaders';
+import StubHeadersAnyOfElement from './model/StubHeadersAnyOfElement';
 import StubInput from './model/StubInput';
+import StubInputAnyOfElement from './model/StubInputAnyOfElement';
 import StubOptions from './model/StubOptions';
 import StubOutput from './model/StubOutput';
 import StubOutputDetailsInner from './model/StubOutputDetailsInner';
@@ -216,16 +219,34 @@ export {
     Stub,
 
     /**
+     * The StubEffect model constructor.
+     * @property {module:model/StubEffect}
+     */
+    StubEffect,
+
+    /**
      * The StubHeaders model constructor.
      * @property {module:model/StubHeaders}
      */
     StubHeaders,
 
     /**
+     * The StubHeadersAnyOfElement model constructor.
+     * @property {module:model/StubHeadersAnyOfElement}
+     */
+    StubHeadersAnyOfElement,
+
+    /**
      * The StubInput model constructor.
      * @property {module:model/StubInput}
      */
     StubInput,
+
+    /**
+     * The StubInputAnyOfElement model constructor.
+     * @property {module:model/StubInputAnyOfElement}
+     */
+    StubInputAnyOfElement,
 
     /**
      * The StubOptions model constructor.
