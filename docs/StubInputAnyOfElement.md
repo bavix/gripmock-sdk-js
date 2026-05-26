@@ -1,4 +1,4 @@
-# GripmockSdk.StubInput
+# GripmockSdk.StubInputAnyOfElement
 
 ## Properties
 
@@ -8,6 +8,5 @@ Name | Type | Description | Notes
 **equals** | **{String: Object}** |  | [optional] 
 **contains** | **{String: Object}** |  | [optional] 
 **matches** | **{String: Object}** |  | [optional] 
-**anyOf** | [**[StubInputAnyOfElement]**](StubInputAnyOfElement.md) | Alternative input matchers (OR logic) | [optional] 
 
 
