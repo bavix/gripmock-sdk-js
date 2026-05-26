@@ -13,5 +13,7 @@ Name | Type | Description | Notes
 **inputs** | [**[StubInput]**](StubInput.md) | Inputs to match against. If multiple inputs are provided, the stub will be matched if any of the inputs match. | [optional] 
 **output** | [**StubOutput**](StubOutput.md) |  | 
 **options** | [**StubOptions**](StubOptions.md) |  | [optional] 
+**effects** | [**[StubEffect]**](StubEffect.md) | Side effects applied after successful stub match | [optional] 
+**source** | **String** | Source of the stub (file, rest, mcp, proxy) | [optional] [readonly] 
 
 

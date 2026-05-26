@@ -12,21 +12,20 @@
  */
 
 import ApiClient from '../ApiClient';
-import StubHeadersAnyOfElement from './StubHeadersAnyOfElement';
 
 /**
- * The StubHeaders model module.
- * @module model/StubHeaders
+ * The StubHeadersAnyOfElement model module.
+ * @module model/StubHeadersAnyOfElement
  * @version 1.0.0
  */
-class StubHeaders {
+class StubHeadersAnyOfElement {
     /**
-     * Constructs a new <code>StubHeaders</code>.
-     * @alias module:model/StubHeaders
+     * Constructs a new <code>StubHeadersAnyOfElement</code>.
+     * @alias module:model/StubHeadersAnyOfElement
      */
     constructor() { 
         
-        StubHeaders.initialize(this);
+        StubHeadersAnyOfElement.initialize(this);
     }
 
     /**
@@ -38,15 +37,15 @@ class StubHeaders {
     }
 
     /**
-     * Constructs a <code>StubHeaders</code> from a plain JavaScript object, optionally creating a new instance.
+     * Constructs a <code>StubHeadersAnyOfElement</code> from a plain JavaScript object, optionally creating a new instance.
      * Copies all relevant properties from <code>data</code> to <code>obj</code> if supplied or a new instance if not.
      * @param {Object} data The plain JavaScript object bearing properties of interest.
-     * @param {module:model/StubHeaders} obj Optional instance to populate.
-     * @return {module:model/StubHeaders} The populated <code>StubHeaders</code> instance.
+     * @param {module:model/StubHeadersAnyOfElement} obj Optional instance to populate.
+     * @return {module:model/StubHeadersAnyOfElement} The populated <code>StubHeadersAnyOfElement</code> instance.
      */
     static constructFromObject(data, obj) {
         if (data) {
-            obj = obj || new StubHeaders();
+            obj = obj || new StubHeadersAnyOfElement();
 
             if (data.hasOwnProperty('equals')) {
                 obj['equals'] = ApiClient.convertToType(data['equals'], {'String': 'String'});
@@ -57,29 +56,16 @@ class StubHeaders {
             if (data.hasOwnProperty('matches')) {
                 obj['matches'] = ApiClient.convertToType(data['matches'], {'String': 'String'});
             }
-            if (data.hasOwnProperty('anyOf')) {
-                obj['anyOf'] = ApiClient.convertToType(data['anyOf'], [StubHeadersAnyOfElement]);
-            }
         }
         return obj;
     }
 
     /**
-     * Validates the JSON data with respect to <code>StubHeaders</code>.
+     * Validates the JSON data with respect to <code>StubHeadersAnyOfElement</code>.
      * @param {Object} data The plain JavaScript object bearing properties of interest.
-     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>StubHeaders</code>.
+     * @return {boolean} to indicate whether the JSON data is valid with respect to <code>StubHeadersAnyOfElement</code>.
      */
     static validateJSON(data) {
-        if (data['anyOf']) { // data not null
-            // ensure the json data is an array
-            if (!Array.isArray(data['anyOf'])) {
-                throw new Error("Expected the field `anyOf` to be an array in the JSON data but got " + data['anyOf']);
-            }
-            // validate the optional field `anyOf` (array)
-            for (const item of data['anyOf']) {
-                StubHeadersAnyOfElement.validateJSON(item);
-            };
-        }
 
         return true;
     }
@@ -92,28 +78,22 @@ class StubHeaders {
 /**
  * @member {Object.<String, String>} equals
  */
-StubHeaders.prototype['equals'] = undefined;
+StubHeadersAnyOfElement.prototype['equals'] = undefined;
 
 /**
  * @member {Object.<String, String>} contains
  */
-StubHeaders.prototype['contains'] = undefined;
+StubHeadersAnyOfElement.prototype['contains'] = undefined;
 
 /**
  * @member {Object.<String, String>} matches
  */
-StubHeaders.prototype['matches'] = undefined;
-
-/**
- * Alternative header matchers (OR logic)
- * @member {Array.<module:model/StubHeadersAnyOfElement>} anyOf
- */
-StubHeaders.prototype['anyOf'] = undefined;
+StubHeadersAnyOfElement.prototype['matches'] = undefined;
 
 
 
 
 
 
-export default StubHeaders;
+export default StubHeadersAnyOfElement;
 

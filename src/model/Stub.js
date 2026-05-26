@@ -12,6 +12,7 @@
  */
 
 import ApiClient from '../ApiClient';
+import StubEffect from './StubEffect';
 import StubHeaders from './StubHeaders';
 import StubInput from './StubInput';
 import StubOptions from './StubOptions';
@@ -87,6 +88,12 @@ class Stub {
             if (data.hasOwnProperty('options')) {
                 obj['options'] = StubOptions.constructFromObject(data['options']);
             }
+            if (data.hasOwnProperty('effects')) {
+                obj['effects'] = ApiClient.convertToType(data['effects'], [StubEffect]);
+            }
+            if (data.hasOwnProperty('source')) {
+                obj['source'] = ApiClient.convertToType(data['source'], 'String');
+            }
         }
         return obj;
     }
@@ -140,6 +147,20 @@ class Stub {
         // validate the optional field `options`
         if (data['options']) { // data not null
           StubOptions.validateJSON(data['options']);
+        }
+        if (data['effects']) { // data not null
+            // ensure the json data is an array
+            if (!Array.isArray(data['effects'])) {
+                throw new Error("Expected the field `effects` to be an array in the JSON data but got " + data['effects']);
+            }
+            // validate the optional field `effects` (array)
+            for (const item of data['effects']) {
+                StubEffect.validateJSON(item);
+            };
+        }
+        // ensure the json data is a string
+        if (data['source'] && !(typeof data['source'] === 'string' || data['source'] instanceof String)) {
+            throw new Error("Expected the field `source` to be a primitive type in the JSON string but got " + data['source']);
         }
 
         return true;
@@ -197,6 +218,18 @@ Stub.prototype['output'] = undefined;
  * @member {module:model/StubOptions} options
  */
 Stub.prototype['options'] = undefined;
+
+/**
+ * Side effects applied after successful stub match
+ * @member {Array.<module:model/StubEffect>} effects
+ */
+Stub.prototype['effects'] = undefined;
+
+/**
+ * Source of the stub (file, rest, mcp, proxy)
+ * @member {String} source
+ */
+Stub.prototype['source'] = undefined;
 
 
 
